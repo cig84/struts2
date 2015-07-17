@@ -5,7 +5,7 @@
 
 <struts>
 
-	<constant name="struts.devMode" value="true" />
+	<constant name="struts.devMode" value="false" />
 
 	<package name="basicstruts2" extends="struts-default">
 
@@ -30,6 +30,25 @@
 		<action name="coche" class="org.apache.struts.helloworld.action.RecuperaCocheAction" method="execute">
 		    <result name="success">/SalidaCoche.jsp</result>
 		</action>
+		<action name="validate" class="org.apache.struts.helloworld.action.PruebaValidateAction" method="execute">
+		    <result>/Rajao.jsp</result>
+		    <result name="input">/Rajao.jsp</result>
+		</action>
+				<action name="UploadFile" class="org.apache.struts.helloworld.action.UploadFileAction">
+            <param name="directorio">C:\Users\alumno\workspace_cig</param>
+            
+            <interceptor-ref name="defaultStack"> <!-- de este modo se garantiza el uso de defualt stack y sólo se parametrizar el intrepcetor fileUpload -->
+                <!-- <param name="fileUpload.maximumSize">999999999</param>-->
+                <param name="fileUpload.allowedTypes">text/plain,image/*,application/*</param>
+                <param name="validation.excludeMethods">espera</param>
+            </interceptor-ref>
+            <interceptor-ref name="logger" />
+            <interceptor-ref name="timer" />
+            <interceptor-ref name="execAndWait"/>
+    		<result name="wait">/espera.jsp</result>
+            <result name="success">/UploadFileSuccess.jsp</result>
+            <result name="input">/upfile.jsp</result>
+        </action>
 
 	</package>
 

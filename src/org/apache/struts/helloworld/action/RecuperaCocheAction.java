@@ -3,8 +3,6 @@ package org.apache.struts.helloworld.action;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.conversion.annotations.TypeConversion;
 
-import dataBaseHR.Employees;
-
 public class RecuperaCocheAction extends ActionSupport{
 	
 	private Coche coche;
